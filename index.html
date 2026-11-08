@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIT CHECK — Your Style. Your Rules.</title>
+  <meta name="description" content="A premium, gender-inclusive personal fashion and styling studio. Discover, curate, and plan your signature looks.">
+  
+  <!-- Google Fonts: Playfair Display & DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- APP SHELL -->
+  <div id="app" class="app-layout">
+    
+    <!-- EDITORIAL TOP BAR -->
+    <header class="app-header">
+      <div class="header-left">
+        <button id="mobile-menu-toggle" class="icon-btn mobile-only" aria-label="Toggle navigation">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="brand-group" role="button" tabindex="0" onclick="navigateTo('home')">
+          <span class="brand-eyebrow">STUDIO EDITION</span>
+          <h1 class="brand-title">FIT CHECK</h1>
+        </div>
+      </div>
+
+      <!-- DESKTOP NAV -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <button class="nav-item active" data-nav="home">Home</button>
+        <button class="nav-item" data-nav="closet">My Closet</button>
+        <button class="nav-item" data-nav="stylelab">Style Lab</button>
+        <button class="nav-item" data-nav="assistant">Styling Assistant</button>
+        <button class="nav-item" data-nav="discover">Discover</button>
+        <button class="nav-item" data-nav="planner">Weekly Planner</button>
+        <button class="nav-item" data-nav="lookbook">My Lookbook</button>
+        <button class="nav-item" data-nav="challenges">Fit Challenge</button>
+      </nav>
+
+      <div class="header-right">
+        <button id="global-search-btn" class="icon-btn" aria-label="Global Search" title="Search Wardrobe & Outfits">
+          <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <button id="quick-add-btn" class="btn btn-secondary btn-sm" title="Quick Add Item">
+          <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span class="desktop-text">Add Item</span>
+        </button>
+        <button id="style-me-quick-btn" class="btn btn-primary btn-sm" title="Open Styling Assistant">
+          <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+          <span class="desktop-text">Style Me</span>
+        </button>
+        <button id="profile-settings-btn" class="avatar-btn" aria-label="Profile and Settings" title="Preferences & Settings">
+          <span class="avatar-initials" id="user-initials">FC</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MOBILE SIDEBAR DRAWER -->
+    <div id="mobile-drawer" class="mobile-drawer-overlay">
+      <div class="mobile-drawer-content">
+        <div class="drawer-header">
+          <div class="brand-group">
+            <span class="brand-eyebrow">STUDIO EDITION</span>
+            <span class="brand-title">FIT CHECK</span>
+          </div>
+          <button id="close-mobile-drawer" class="icon-btn" aria-label="Close menu">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <nav class="mobile-nav-list">
+          <button class="mobile-nav-link active" data-nav="home">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="1.8" fill="none"/><polyline points="9 22 9 12 15 12 15 22" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+            <span>Home</span>
+          </button>
+          <button class="mobile-nav-link" data-nav="closet">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+            <span>My Closet</span>
+          </button>
+          <button class="mobile-nav-link" data-nav="stylelab">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M14 2v4a2 2 0 0 0 2 2h4" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M2 15h10M7 10v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span>Style Lab</span>
+          </button>
+          <button class="mobile-nav-link" data-nav="assistant">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+            <span>Styling Assistant</span>
+          </button>
+          <button class="mobile-nav-link" data-nav="discover">
+            <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8" fill="none"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+            <span>Discover</span>
+          </button>
+          <button class="mobile-nav-link" data-nav="planner">
+            <svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span>Weekly Planner</span>
+          </button>
+          <button class="mobile-nav-link" data-nav="lookbook">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+            <span>My Lookbook</span>
+          </button>
+          <button class="mobile-nav-link" data-nav="challenges">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+            <span>Fit Challenge</span>
+          </button>
+        </nav>
+        <div class="drawer-footer">
+          <button class="btn btn-secondary btn-block" onclick="openPreferencesDrawer(); closeMobileMenu();">
+            <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+            Preferences & Backup
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT VIEW CONTAINER -->
+    <main class="main-content" id="main-content">
+
+      <!-- ============================================== -->
+      <!-- SECTION 1: HOME DASHBOARD -->
+      <!-- ============================================== -->
+      <section id="section-home" class="content-section active">
+        <!-- Hero Section -->
+        <div class="editorial-hero">
+          <div class="hero-text-col">
+            <div class="hero-date-badge">
+              <span id="hero-live-date">Sunday, November 8, 2026</span>
+              <span class="badge-dot"></span>
+              <span id="hero-live-greeting">Welcome, Alex</span>
+            </div>
+            <h2 class="hero-heading">Getting dressed should be the easy part.</h2>
+            <p class="hero-subtext">Your wardrobe, your mood, your rules. Let’s curate, explore, and put together your signature look.</p>
+            
+            <div class="hero-actions">
+              <button class="btn btn-primary btn-lg" onclick="navigateTo('assistant')">
+                <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+                Style Your Day
+              </button>
+              <button class="btn btn-outline btn-lg" onclick="navigateTo('stylelab')">
+                <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                Open Style Lab
+              </button>
+            </div>
+          </div>
+          
+          <div class="hero-spotlight-col">
+            <div class="spotlight-card" id="home-today-spotlight">
+              <!-- Dynamically Populated Today's Style Card -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Wardrobe Snapshot Metrics -->
+        <div class="dashboard-metrics-grid">
+          <div class="metric-card" onclick="navigateTo('closet')">
+            <div class="metric-icon">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+            </div>
+            <div class="metric-body">
+              <span class="metric-number" id="metric-items-count">0</span>
+              <span class="metric-label">Wardrobe Items</span>
+            </div>
+            <span class="metric-arrow">→</span>
+          </div>
+          <div class="metric-card" onclick="navigateTo('lookbook')">
+            <div class="metric-icon">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+            </div>
+            <div class="metric-body">
+              <span class="metric-number" id="metric-outfits-count">0</span>
+              <span class="metric-label">Saved Outfits</span>
+            </div>
+            <span class="metric-arrow">→</span>
+          </div>
+          <div class="metric-card" onclick="navigateTo('planner')">
+            <div class="metric-icon">
+              <svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="1.8"/></svg>
+            </div>
+            <div class="metric-body">
+              <span class="metric-number" id="metric-planned-count">0</span>
+              <span class="metric-label">Planned This Week</span>
+            </div>
+            <span class="metric-arrow">→</span>
+          </div>
+          <div class="metric-card" onclick="navigateTo('closet', {filterFavorites: true})">
+            <div class="metric-icon">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+            </div>
+            <div class="metric-body">
+              <span class="metric-number" id="metric-favorites-count">0</span>
+              <span class="metric-label">Favorite Pieces</span>
+            </div>
+            <span class="metric-arrow">→</span>
+          </div>
+        </div>
+
+        <!-- Your Week at a Glance Preview -->
+        <div class="dashboard-section">
+          <div class="section-editorial-header">
+            <div>
+              <span class="editorial-eyebrow">AGENDA</span>
+              <h3 class="section-title">Your Week at a Glance</h3>
+            </div>
+            <button class="btn btn-link" onclick="navigateTo('planner')">Full Weekly Planner →</button>
+          </div>
+          <div class="week-glance-row" id="home-week-glance">
+            <!-- Dynamically populated 7 days -->
+          </div>
+        </div>
+
+        <!-- Rotating Fit Challenge Banner -->
+        <div class="dashboard-section">
+          <div class="fit-challenge-banner" id="home-challenge-banner">
+            <!-- Dynamically rendered active challenge -->
+          </div>
+        </div>
+
+        <!-- Recently Created Looks -->
+        <div class="dashboard-section">
+          <div class="section-editorial-header">
+            <div>
+              <span class="editorial-eyebrow">PORTFOLIO</span>
+              <h3 class="section-title">Recently Created Looks</h3>
+            </div>
+            <button class="btn btn-link" onclick="navigateTo('lookbook')">View Lookbook →</button>
+          </div>
+          <div class="outfits-grid" id="home-recent-outfits">
+            <!-- Populated via script -->
+          </div>
+        </div>
+
+        <!-- Curated Inspiration Snippet -->
+        <div class="dashboard-section">
+          <div class="section-editorial-header">
+            <div>
+              <span class="editorial-eyebrow">EDITORIAL SELECTION</span>
+              <h3 class="section-title">Style Inspiration</h3>
+            </div>
+            <button class="btn btn-link" onclick="navigateTo('discover')">Explore All Looks →</button>
+          </div>
+          <div class="discover-grid" id="home-inspiration-snippet">
+            <!-- Populated via script -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SECTION 2: MY CLOSET -->
+      <!-- ============================================== -->
+      <section id="section-closet" class="content-section">
+        <div class="section-editorial-header">
+          <div>
+            <span class="editorial-eyebrow">DIGITAL WARDROBE</span>
+            <h2 class="section-title">My Closet</h2>
+            <p class="section-desc">Catalogue your garments, track styling details, and build intentional fashion rotations.</p>
+          </div>
+          <div class="header-actions">
+            <button class="btn btn-primary" onclick="openAddItemModal()">
+              <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Add New Garment
+            </button>
+          </div>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="filter-pills-bar" id="closet-category-tabs">
+          <button class="pill-btn active" data-category="all">All Garments</button>
+          <button class="pill-btn" data-category="Tops">Tops</button>
+          <button class="pill-btn" data-category="Bottoms">Bottoms</button>
+          <button class="pill-btn" data-category="One-piece garments">One-Piece</button>
+          <button class="pill-btn" data-category="Outerwear">Outerwear</button>
+          <button class="pill-btn" data-category="Footwear">Footwear</button>
+          <button class="pill-btn" data-category="Accessories">Accessories</button>
+          <button class="pill-btn" data-category="Custom">Custom</button>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="toolbar-box">
+          <div class="search-input-wrapper">
+            <svg class="svg-icon sm search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <input type="text" id="closet-search-input" placeholder="Search by name, colour, material or notes..." class="form-input">
+            <button id="closet-search-clear" class="clear-btn hidden" aria-label="Clear search">×</button>
+          </div>
+
+          <div class="filters-wrap">
+            <select id="closet-filter-aesthetic" class="form-select">
+              <option value="">All Aesthetics</option>
+              <option value="Minimalist">Minimalist</option>
+              <option value="Quiet luxury">Quiet Luxury</option>
+              <option value="Streetwear">Streetwear</option>
+              <option value="Smart casual">Smart Casual</option>
+              <option value="Old money">Old Money</option>
+              <option value="Afrocentric">Afrocentric</option>
+              <option value="Androgynous">Androgynous</option>
+              <option value="Vintage">Vintage</option>
+              <option value="Y2K">Y2K</option>
+              <option value="Bohemian">Bohemian</option>
+              <option value="Techwear">Techwear</option>
+              <option value="Corporate chic">Corporate Chic</option>
+              <option value="Avant-garde">Avant-Garde</option>
+              <option value="Classic">Classic</option>
+            </select>
+
+            <select id="closet-filter-color" class="form-select">
+              <option value="">All Colours</option>
+              <option value="Black">Black</option>
+              <option value="White">White</option>
+              <option value="Ivory">Ivory / Cream</option>
+              <option value="Beige">Beige / Camel</option>
+              <option value="Brown">Brown / Chocolate</option>
+              <option value="Grey">Grey / Charcoal</option>
+              <option value="Navy">Navy Blue</option>
+              <option value="Blue">Blue / Indigo</option>
+              <option value="Burgundy">Burgundy / Wine</option>
+              <option value="Olive">Olive / Green</option>
+              <option value="Terracotta">Terracotta / Rust</option>
+              <option value="Gold">Gold / Brass</option>
+              <option value="Silver">Silver</option>
+              <option value="Multi">Multicolour / Print</option>
+            </select>
+
+            <select id="closet-filter-occasion" class="form-select">
+              <option value="">All Occasions</option>
+              <option value="Work">Work / Office</option>
+              <option value="Casual outing">Casual Outing</option>
+              <option value="Date">Date Night</option>
+              <option value="Brunch">Brunch</option>
+              <option value="Party">Party</option>
+              <option value="Formal event">Formal Event</option>
+              <option value="Travel">Travel</option>
+              <option value="Gym or exercise">Athletic</option>
+              <option value="Staying at home">Lounge</option>
+            </select>
+
+            <select id="closet-sort" class="form-select">
+              <option value="recent">Recently Added</option>
+              <option value="alpha">Name (A-Z)</option>
+              <option value="favorites">Favorites First</option>
+            </select>
+
+            <button id="closet-fav-toggle" class="btn btn-secondary btn-icon-only" title="Toggle Favorites Filter">
+              <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Items Counter & Active Filter Tags -->
+        <div class="closet-status-bar">
+          <span id="closet-counter" class="status-counter">Showing 0 pieces</span>
+          <div id="closet-active-tags" class="active-tags-list"></div>
+        </div>
+
+        <!-- Wardrobe Grid -->
+        <div class="wardrobe-grid" id="closet-items-grid">
+          <!-- Populated by script -->
+        </div>
+
+        <!-- Empty State Container -->
+        <div id="closet-empty-state" class="empty-state hidden">
+          <div class="empty-icon">
+            <svg class="svg-icon lg" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+          </div>
+          <h3 class="empty-title">Your Wardrobe Awaits</h3>
+          <p class="empty-desc">No clothing items match your active filters. Add garments to your closet or reset your search.</p>
+          <button class="btn btn-primary" onclick="openAddItemModal()">+ Add Your First Garment</button>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SECTION 3: STYLE LAB -->
+      <!-- ============================================== -->
+      <section id="section-stylelab" class="content-section">
+        <div class="section-editorial-header">
+          <div>
+            <span class="editorial-eyebrow">CREATIVE STUDIO</span>
+            <h2 class="section-title">Style Lab</h2>
+            <p class="section-desc">Compose full outfit silhouettes, arrange layers, harmonise accessories and export your editorial boards.</p>
+          </div>
+          <div class="header-actions">
+            <button class="btn btn-outline" id="stylelab-clear-btn" title="Clear board">
+              <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+              Clear Board
+            </button>
+            <button class="btn btn-secondary" id="stylelab-export-btn" title="Export as PNG">
+              <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+              Export Board
+            </button>
+            <button class="btn btn-primary" id="stylelab-save-btn" title="Save outfit to Lookbook">
+              <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+              Save Outfit
+            </button>
+          </div>
+        </div>
+
+        <!-- Style Lab Workspace Layout -->
+        <div class="stylelab-workspace">
+          
+          <!-- LEFT / MAIN: Editorial Styling Board (Composition Canvas) -->
+          <div class="styling-board-container">
+            <div class="styling-board-header">
+              <div class="board-badge">OUTFIT COMPOSITION BOARD</div>
+              <div class="board-harmony" id="stylelab-harmony-badge">
+                <span class="harmony-dot"></span>
+                <span id="stylelab-harmony-text">Select items to analyse balance</span>
+              </div>
+            </div>
+
+            <!-- Visual Canvas Board -->
+            <div class="styling-board" id="styling-board">
+              
+              <!-- Slots arrangement: Outerwear / Headwear -->
+              <div class="board-row top-row">
+                <div class="board-slot" data-slot="Outerwear">
+                  <span class="slot-label">Outerwear</span>
+                  <div class="slot-content" id="slot-outerwear">
+                    <button class="slot-add-btn" onclick="openSlotPicker('Outerwear')">+ Add Outerwear</button>
+                  </div>
+                </div>
+                <div class="board-slot" data-slot="Accessories-Head">
+                  <span class="slot-label">Hat / Glasses / Scarf</span>
+                  <div class="slot-content" id="slot-accessories-head">
+                    <button class="slot-add-btn" onclick="openSlotPicker('Accessories')">+ Add Accessory</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Main Garment Slots: Top & Bottom OR One-Piece -->
+              <div class="board-row main-row">
+                <div class="board-slot" data-slot="Tops">
+                  <span class="slot-label">Top / Shirt</span>
+                  <div class="slot-content" id="slot-tops">
+                    <button class="slot-add-btn" onclick="openSlotPicker('Tops')">+ Add Top</button>
+                  </div>
+                </div>
+
+                <div class="board-slot" data-slot="One-piece garments">
+                  <span class="slot-label">One-Piece / Dress / Jumpsuit</span>
+                  <div class="slot-content" id="slot-onepiece">
+                    <button class="slot-add-btn" onclick="openSlotPicker('One-piece garments')">+ Add One-Piece</button>
+                  </div>
+                </div>
+
+                <div class="board-slot" data-slot="Bottoms">
+                  <span class="slot-label">Bottom / Trousers / Skirt</span>
+                  <div class="slot-content" id="slot-bottoms">
+                    <button class="slot-add-btn" onclick="openSlotPicker('Bottoms')">+ Add Bottom</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Lower Garments: Footwear & Bag/Jewellery -->
+              <div class="board-row bottom-row">
+                <div class="board-slot" data-slot="Footwear">
+                  <span class="slot-label">Footwear</span>
+                  <div class="slot-content" id="slot-footwear">
+                    <button class="slot-add-btn" onclick="openSlotPicker('Footwear')">+ Add Footwear</button>
+                  </div>
+                </div>
+
+                <div class="board-slot" data-slot="Accessories-Bag">
+                  <span class="slot-label">Bag / Watch / Jewellery</span>
+                  <div class="slot-content" id="slot-accessories-bag">
+                    <button class="slot-add-btn" onclick="openSlotPicker('Accessories')">+ Add Bag / Acc</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Complete The Look: Dedicated Intelligent Accessory Matching -->
+            <div class="complete-the-look-panel">
+              <div class="ctl-header">
+                <div>
+                  <h4 class="ctl-title">Complete The Look</h4>
+                  <p class="ctl-subtitle">Intelligent accessory pairing matched to this outfit's silhouette, colour palette and formality.</p>
+                </div>
+                <span class="ctl-badge">SMART MATCH</span>
+              </div>
+              <div class="ctl-suggestions-row" id="ctl-suggestions-list">
+                <!-- Dynamically populated complementary accessories -->
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT / SIDE: Wardrobe Drawer for Quick Selection -->
+          <div class="stylelab-drawer">
+            <div class="drawer-panel-header">
+              <h3 class="panel-title">Wardrobe Drawer</h3>
+              <span class="panel-subtitle">Click pieces to place on styling board</span>
+            </div>
+
+            <div class="drawer-filter-tabs" id="stylelab-drawer-tabs">
+              <button class="drawer-tab active" data-drawer-cat="all">All</button>
+              <button class="drawer-tab" data-drawer-cat="Tops">Tops</button>
+              <button class="drawer-tab" data-drawer-cat="Bottoms">Bottoms</button>
+              <button class="drawer-tab" data-drawer-cat="One-piece garments">1-Piece</button>
+              <button class="drawer-tab" data-drawer-cat="Outerwear">Outer</button>
+              <button class="drawer-tab" data-drawer-cat="Footwear">Shoes</button>
+              <button class="drawer-tab" data-drawer-cat="Accessories">Acc</button>
+            </div>
+
+            <div class="drawer-search-wrap">
+              <input type="text" id="stylelab-drawer-search" placeholder="Quick search pieces..." class="form-input form-input-sm">
+            </div>
+
+            <div class="drawer-items-list" id="stylelab-drawer-items">
+              <!-- Populated with wardrobe cards -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SECTION 4: THE PERSONAL STYLING ASSISTANT -->
+      <!-- ============================================== -->
+      <section id="section-assistant" class="content-section">
+        <div class="section-editorial-header">
+          <div>
+            <span class="editorial-eyebrow">INTELLIGENT STYLIST</span>
+            <h2 class="section-title">The Personal Styling Assistant</h2>
+            <p class="section-desc">Multi-criteria contextual styling based on your mood, environment, weather, profession, dress code and aesthetic rules.</p>
+          </div>
+        </div>
+
+        <div class="assistant-container">
+          
+          <!-- Styling Criteria Form -->
+          <div class="assistant-card">
+            <h3 class="assistant-card-title">Define Your Styling Intent</h3>
+            <p class="assistant-card-desc">Select as many criteria as relevant. Our rules-based engine harmonises garments without gender stereotypes.</p>
+
+            <form id="assistant-form" onsubmit="handleAssistantSubmit(event)">
+              
+              <!-- 1. Mood -->
+              <div class="form-criteria-group">
+                <label class="criteria-label">1. Personal Mood</label>
+                <div class="options-pills-grid" id="criteria-mood">
+                  <label class="choice-pill"><input type="radio" name="mood" value="Effortlessly chic" checked><span>Effortlessly Chic</span></label>
+                  <label class="choice-pill"><input type="radio" name="mood" value="Confident and powerful"><span>Confident & Powerful</span></label>
+                  <label class="choice-pill"><input type="radio" name="mood" value="Soft and relaxed"><span>Soft & Relaxed</span></label>
+                  <label class="choice-pill"><input type="radio" name="mood" value="Bold and expressive"><span>Bold & Expressive</span></label>
+                  <label class="choice-pill"><input type="radio" name="mood" value="Minimalist"><span>Minimalist</span></label>
+                  <label class="choice-pill"><input type="radio" name="mood" value="Romantic"><span>Romantic</span></label>
+                  <label class="choice-pill"><input type="radio" name="mood" value="Mysterious"><span>Mysterious</span></label>
+                  <label class="choice-pill"><input type="radio" name="mood" value="Sporty"><span>Sporty</span></label>
+                  <label class="choice-pill"><input type="radio" name="mood" value="Creative and experimental"><span>Creative & Experimental</span></label>
+                  <label class="choice-pill"><input type="radio" name="mood" value="Casual and comfortable"><span>Casual & Comfortable</span></label>
+                  <label class="choice-pill"><input type="radio" name="mood" value="Elegant"><span>Elegant</span></label>
+                  <label class="choice-pill"><input type="radio" name="mood" value="Edgy"><span>Edgy</span></label>
+                  <label class="choice-pill"><input type="radio" name="mood" value="Custom"><span>Custom Mood</span></label>
+                </div>
+                <div id="custom-mood-wrap" class="custom-input-wrap hidden">
+                  <input type="text" id="custom-mood-text" placeholder="Type your custom mood..." class="form-input form-input-sm">
+                </div>
+              </div>
+
+              <!-- 2. Weather -->
+              <div class="form-criteria-group">
+                <label class="criteria-label">2. Weather Conditions</label>
+                <div class="options-pills-grid" id="criteria-weather">
+                  <label class="choice-pill"><input type="radio" name="weather" value="Hot and sunny"><span>☀️ Hot & Sunny</span></label>
+                  <label class="choice-pill"><input type="radio" name="weather" value="Hot and humid"><span>🌴 Hot & Humid</span></label>
+                  <label class="choice-pill"><input type="radio" name="weather" value="Warm" checked><span>🌤️ Warm</span></label>
+                  <label class="choice-pill"><input type="radio" name="weather" value="Cool"><span>🍂 Cool</span></label>
+                  <label class="choice-pill"><input type="radio" name="weather" value="Cold"><span>❄️ Cold</span></label>
+                  <label class="choice-pill"><input type="radio" name="weather" value="Rainy"><span>🌧️ Rainy</span></label>
+                  <label class="choice-pill"><input type="radio" name="weather" value="Windy"><span>💨 Windy</span></label>
+                  <label class="choice-pill"><input type="radio" name="weather" value="Mixed weather"><span>⛅ Mixed Weather</span></label>
+                </div>
+              </div>
+
+              <!-- 3. Occasion -->
+              <div class="form-criteria-group">
+                <label class="criteria-label">3. Occasion</label>
+                <div class="options-pills-grid" id="criteria-occasion">
+                  <label class="choice-pill"><input type="radio" name="occasion" value="Work" checked><span>Work / Office</span></label>
+                  <label class="choice-pill"><input type="radio" name="occasion" value="Business meeting"><span>Business Meeting</span></label>
+                  <label class="choice-pill"><input type="radio" name="occasion" value="Job interview"><span>Job Interview</span></label>
+                  <label class="choice-pill"><input type="radio" name="occasion" value="Date"><span>Date Night</span></label>
+                  <label class="choice-pill"><input type="radio" name="occasion" value="Wedding"><span>Wedding</span></label>
+                  <label class="choice-pill"><input type="radio" name="occasion" value="Birthday"><span>Birthday</span></label>
+                  <label class="choice-pill"><input type="radio" name="occasion" value="Brunch"><span>Brunch</span></label>
+                  <label class="choice-pill"><input type="radio" name="occasion" value="Party"><span>Party</span></label>
+                  <label class="choice-pill"><input type="radio" name="occasion" value="Night out"><span>Night Out</span></label>
+                  <label class="choice-pill"><input type="radio" name="occasion" value="Travel"><span>Travel</span></label>
+                  <label class="choice-pill"><input type="radio" name="occasion" value="Vacation"><span>Vacation</span></label>
+                  <label class="choice-pill"><input type="radio" name="occasion" value="Casual outing"><span>Casual Outing</span></label>
+                  <label class="choice-pill"><input type="radio" name="occasion" value="Formal event"><span>Formal Event</span></label>
+                  <label class="choice-pill"><input type="radio" name="occasion" value="Gym or exercise"><span>Gym / Exercise</span></label>
+                  <label class="choice-pill"><input type="radio" name="occasion" value="Staying at home"><span>Staying at Home</span></label>
+                  <label class="choice-pill"><input type="radio" name="occasion" value="Other"><span>Other</span></label>
+                </div>
+              </div>
+
+              <!-- 4. Profession & Dress Code -->
+              <div class="form-row-dual">
+                <div class="form-criteria-group">
+                  <label class="criteria-label">4A. Profession & Work Environment</label>
+                  <select id="criteria-profession" class="form-select">
+                    <option value="Corporate and office-based">Corporate & Office-based</option>
+                    <option value="Business and entrepreneurship">Business & Entrepreneurship</option>
+                    <option value="Creative and media" selected>Creative & Media</option>
+                    <option value="Technology and remote work">Technology & Remote Work</option>
+                    <option value="Education">Education & Academia</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Hospitality">Hospitality</option>
+                    <option value="Retail and customer-facing">Retail & Customer-facing</option>
+                    <option value="Fieldwork and outdoor work">Fieldwork & Outdoor Work</option>
+                    <option value="Trades and practical work">Trades & Practical Work</option>
+                    <option value="Student">Student</option>
+                    <option value="Other">Other Profession</option>
+                  </select>
+                </div>
+                <div class="form-criteria-group">
+                  <label class="criteria-label">4B. Workplace Dress Code</label>
+                  <select id="criteria-dresscode" class="form-select">
+                    <option value="Business formal">Business Formal</option>
+                    <option value="Business casual">Business Casual</option>
+                    <option value="Smart casual" selected>Smart Casual</option>
+                    <option value="Casual">Casual</option>
+                    <option value="Uniform or workwear">Uniform / Workwear</option>
+                    <option value="Creative professional">Creative Professional</option>
+                    <option value="No specific dress code">No Specific Dress Code</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 5. Day of the Week & Target Date -->
+              <div class="form-row-dual">
+                <div class="form-criteria-group">
+                  <label class="criteria-label">5A. Day of the Week</label>
+                  <select id="criteria-day" class="form-select">
+                    <option value="Monday">Monday (Polished Start)</option>
+                    <option value="Tuesday">Tuesday (Focus Flow)</option>
+                    <option value="Wednesday">Wednesday (Midweek Balance)</option>
+                    <option value="Thursday">Thursday (Approaching Weekend)</option>
+                    <option value="Friday">Friday (Relaxed / Transition)</option>
+                    <option value="Saturday">Saturday (Off-Duty / Expressive)</option>
+                    <option value="Sunday">Sunday (Reset / Leisure)</option>
+                  </select>
+                </div>
+                <div class="form-criteria-group">
+                  <label class="criteria-label">5B. Target Calendar Date (Optional)</label>
+                  <input type="date" id="criteria-target-date" class="form-input">
+                </div>
+              </div>
+
+              <!-- 6. Preferred Aesthetic -->
+              <div class="form-criteria-group">
+                <label class="criteria-label">6. Preferred Aesthetic (Select Multiple)</label>
+                <div class="options-pills-grid" id="criteria-aesthetics-grid">
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Minimalist" checked><span>Minimalist</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Quiet luxury"><span>Quiet Luxury</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Old money"><span>Old Money</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Streetwear"><span>Streetwear</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Smart casual" checked><span>Smart Casual</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Afrocentric"><span>Afrocentric</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Traditional and cultural fashion"><span>Traditional & Cultural</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Androgynous"><span>Androgynous</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Vintage"><span>Vintage</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Y2K"><span>Y2K</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Bohemian"><span>Bohemian</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Techwear"><span>Techwear</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Athleisure"><span>Athleisure</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Corporate chic"><span>Corporate Chic</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Casual elegance"><span>Casual Elegance</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Avant-garde"><span>Avant-Garde</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Maximalist"><span>Maximalist</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Classic"><span>Classic</span></label>
+                  <label class="choice-pill-checkbox"><input type="checkbox" name="aesthetic" value="Contemporary"><span>Contemporary</span></label>
+                </div>
+              </div>
+
+              <!-- Submit CTA -->
+              <div class="form-cta-bar">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+                  Generate Curated Recommendations
+                </button>
+              </div>
+
+            </form>
+          </div>
+
+          <!-- Recommendation Results Section -->
+          <div class="assistant-results-section" id="assistant-results-section">
+            <div class="results-editorial-header">
+              <div>
+                <span class="editorial-eyebrow">CURATED RECOMMENDATIONS</span>
+                <h3 class="results-title" id="results-headline">Styling Recommendations</h3>
+                <p class="results-sub" id="results-subtext">Tailored to your mood, weather and occasion.</p>
+              </div>
+            </div>
+
+            <!-- Two Clearly Labelled Result Tabs -->
+            <div class="results-tabs-bar">
+              <button class="results-tab-btn active" id="tab-btn-closet-recs" onclick="switchRecTab('closet')">
+                <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+                1. Style My Closet <span class="tab-badge" id="closet-recs-count">0</span>
+              </button>
+              <button class="results-tab-btn" id="tab-btn-discover-recs" onclick="switchRecTab('discover')">
+                <svg class="svg-icon sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8" fill="none"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+                2. Discover New Looks <span class="tab-badge" id="discover-recs-count">0</span>
+              </button>
+            </div>
+
+            <!-- Tab Content 1: Style My Closet -->
+            <div id="tab-content-closet-recs" class="rec-tab-panel active">
+              <div id="closet-recommendations-list" class="recs-grid">
+                <!-- Dynamically generated closet outfit suggestions -->
+              </div>
+            </div>
+
+            <!-- Tab Content 2: Discover New Looks -->
+            <div id="tab-content-discover-recs" class="rec-tab-panel">
+              <div id="discover-recommendations-list" class="recs-grid">
+                <!-- Dynamically generated curated inspiration combinations -->
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SECTION 5: DISCOVER (FASHION INSPIRATION) -->
+      <!-- ============================================== -->
+      <section id="section-discover" class="content-section">
+        <div class="section-editorial-header">
+          <div>
+            <span class="editorial-eyebrow">CURATED EDITORIAL</span>
+            <h2 class="section-title">Discover Inspiration</h2>
+            <p class="section-desc">Explore innovative styling silhouettes across aesthetics, diverse cultures, and modern interpretations of elegance.</p>
+          </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-pills-bar" id="discover-aesthetic-filters">
+          <button class="pill-btn active" data-discover-filter="all">All Styles</button>
+          <button class="pill-btn" data-discover-filter="Minimalist">Minimalist</button>
+          <button class="pill-btn" data-discover-filter="Quiet luxury">Quiet Luxury</button>
+          <button class="pill-btn" data-discover-filter="Streetwear">Streetwear</button>
+          <button class="pill-btn" data-discover-filter="Afrocentric">Afrocentric</button>
+          <button class="pill-btn" data-discover-filter="Androgynous">Androgynous</button>
+          <button class="pill-btn" data-discover-filter="Smart casual">Smart Casual</button>
+          <button class="pill-btn" data-discover-filter="Avant-garde">Avant-Garde</button>
+          <button class="pill-btn" data-discover-filter="Vintage">Vintage / Y2K</button>
+        </div>
+
+        <div class="discover-grid" id="discover-gallery">
+          <!-- Dynamically populated editorial cards -->
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SECTION 6: WEEKLY PLANNER -->
+      <!-- ============================================== -->
+      <section id="section-planner" class="content-section">
+        <div class="section-editorial-header">
+          <div>
+            <span class="editorial-eyebrow">EDITORIAL CALENDAR</span>
+            <h2 class="section-title">Weekly Planner</h2>
+            <p class="section-desc">Architect your weekly fashion rota. Align your dressing with meetings, weather, events and rest days.</p>
+          </div>
+          <div class="header-actions">
+            <button class="btn btn-secondary" onclick="changePlannerWeek(-1)">
+              ← Previous Week
+            </button>
+            <button class="btn btn-outline" onclick="jumpToCurrentWeek()">
+              Current Week
+            </button>
+            <button class="btn btn-secondary" onclick="changePlannerWeek(1)">
+              Next Week →
+            </button>
+          </div>
+        </div>
+
+        <!-- Weekly Summary Bar -->
+        <div class="planner-summary-bar">
+          <div class="week-heading-group">
+            <h3 class="week-range-title" id="planner-week-title">Week of November 2 - 8, 2026</h3>
+            <span class="week-status-badge" id="planner-status-badge">0 of 7 Days Planned</span>
+          </div>
+          <div class="planner-quick-tip">
+            Tip: Click "+ Plan Look" to assign an outfit or launch the styling assistant for that specific day.
+          </div>
+        </div>
+
+        <!-- 7 Days Grid -->
+        <div class="weekly-planner-grid" id="weekly-planner-days">
+          <!-- Populated by script: Monday through Sunday -->
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SECTION 7: MY LOOKBOOK -->
+      <!-- ============================================== -->
+      <section id="section-lookbook" class="content-section">
+        <div class="section-editorial-header">
+          <div>
+            <span class="editorial-eyebrow">PERSONAL PORTFOLIO</span>
+            <h2 class="section-title">My Lookbook</h2>
+            <p class="section-desc">Your curated archive of saved outfits, organised by mood, season, and signature aesthetic collections.</p>
+          </div>
+          <div class="header-actions">
+            <button class="btn btn-secondary" onclick="openCreateCollectionModal()">
+              <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              New Collection
+            </button>
+            <button class="btn btn-primary" onclick="navigateTo('stylelab')">
+              <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Create New Outfit
+            </button>
+          </div>
+        </div>
+
+        <!-- Collections Pills Bar -->
+        <div class="filter-pills-bar" id="lookbook-collection-tabs">
+          <!-- Dynamically populated collections: All Looks, Workwear, Weekend Looks, Date Night, etc. -->
+        </div>
+
+        <!-- Lookbook Search & Sorting -->
+        <div class="toolbar-box">
+          <div class="search-input-wrapper">
+            <svg class="svg-icon sm search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <input type="text" id="lookbook-search-input" placeholder="Search saved outfits by name, mood, aesthetic..." class="form-input">
+          </div>
+          <div class="filters-wrap">
+            <select id="lookbook-sort" class="form-select">
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+              <option value="alpha">Name (A-Z)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Saved Outfits Grid -->
+        <div class="outfits-grid" id="lookbook-outfits-grid">
+          <!-- Populated by script -->
+        </div>
+
+        <!-- Lookbook Empty State -->
+        <div id="lookbook-empty-state" class="empty-state hidden">
+          <div class="empty-icon">
+            <svg class="svg-icon lg" viewBox="0 0 24 24"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+          </div>
+          <h3 class="empty-title">Your Lookbook is Empty</h3>
+          <p class="empty-desc">Create your first signature outfit composition in Style Lab or save an outfit from the Styling Assistant.</p>
+          <button class="btn btn-primary" onclick="navigateTo('stylelab')">Launch Style Lab</button>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SECTION 8: THE FIT CHALLENGE -->
+      <!-- ============================================== -->
+      <section id="section-challenges" class="content-section">
+        <div class="section-editorial-header">
+          <div>
+            <span class="editorial-eyebrow">CREATIVE PROMPTS</span>
+            <h2 class="section-title">The Fit Challenge</h2>
+            <p class="section-desc">Break sartorial habits with rotating creative styling constraints. Expand your personal style range.</p>
+          </div>
+        </div>
+
+        <!-- Active Featured Challenge Card -->
+        <div class="featured-challenge-card" id="featured-challenge-display">
+          <!-- Populated by script -->
+        </div>
+
+        <!-- Challenge Catalog Archive -->
+        <div class="dashboard-section">
+          <div class="section-editorial-header">
+            <div>
+              <span class="editorial-eyebrow">EXPLORE ALL PROMPTS</span>
+              <h3 class="section-title">Challenge Catalog</h3>
+            </div>
+          </div>
+          <div class="challenges-grid" id="challenges-catalog-grid">
+            <!-- Populated by script -->
+          </div>
+        </div>
+
+        <!-- Completed Submissions Gallery -->
+        <div class="dashboard-section">
+          <div class="section-editorial-header">
+            <div>
+              <span class="editorial-eyebrow">YOUR SUBMISSIONS</span>
+              <h3 class="section-title">Completed Challenge Fits</h3>
+            </div>
+          </div>
+          <div class="outfits-grid" id="challenge-submissions-grid">
+            <!-- Populated by script -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+      <button class="mob-nav-btn active" data-nav="home">
+        <svg class="svg-icon" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+        <span>Home</span>
+      </button>
+      <button class="mob-nav-btn" data-nav="closet">
+        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+        <span>Closet</span>
+      </button>
+      <button class="mob-nav-btn" data-nav="stylelab">
+        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>Style Lab</span>
+      </button>
+      <button class="mob-nav-btn" data-nav="assistant">
+        <svg class="svg-icon" viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+        <span>Assistant</span>
+      </button>
+      <button class="mob-nav-btn" data-nav="planner">
+        <svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span>Planner</span>
+      </button>
+      <button class="mob-nav-btn" data-nav="lookbook">
+        <svg class="svg-icon" viewBox="0 0 24 24"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+        <span>Lookbook</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODALS & DRAWERS -->
+  <!-- ============================================== -->
+
+  <!-- 1. ADD / EDIT GARMENT MODAL -->
+  <div id="modal-item" class="modal-backdrop">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-item-title">Add Garment to Closet</h3>
+        <button class="icon-btn modal-close-btn" onclick="closeModal('modal-item')">×</button>
+      </div>
+      <form id="form-item" onsubmit="handleItemFormSubmit(event)">
+        <input type="hidden" id="item-id">
+        <div class="modal-body form-grid">
+          
+          <!-- Image upload / preview -->
+          <div class="form-col image-upload-col">
+            <label class="form-label">Garment Photograph *</label>
+            <div class="image-drop-area" id="image-drop-zone">
+              <img id="image-preview" src="" alt="Garment Preview" class="preview-img hidden">
+              <div id="image-placeholder" class="upload-placeholder">
+                <svg class="svg-icon lg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><polyline points="21 15 16 10 5 21" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+                <span class="upload-hint">Upload or Take Photo</span>
+                <span class="upload-sub">Auto-resized for fast storage</span>
+              </div>
+              <input type="file" id="item-image-file" accept="image/*" class="file-input-hidden">
+            </div>
+            
+            <div class="image-options-row">
+              <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('item-image-file').click()">
+                Choose Photo
+              </button>
+              <button type="button" class="btn btn-outline btn-sm" onclick="showPresetSamplePhotos()">
+                Curated Presets
+              </button>
+            </div>
+            <div id="preset-photos-picker" class="preset-photos-tray hidden">
+              <!-- Preset thumbnails populated by script -->
+            </div>
+          </div>
+
+          <!-- Metadata fields -->
+          <div class="form-col fields-col">
+            <div class="form-group">
+              <label class="form-label" for="item-name">Garment Name *</label>
+              <input type="text" id="item-name" class="form-input" placeholder="e.g. Tailored Pleated Trousers" required>
+            </div>
+
+            <div class="form-row-dual">
+              <div class="form-group">
+                <label class="form-label" for="item-category">Category *</label>
+                <select id="item-category" class="form-select" onchange="updateSubcategoriesDropdown()" required>
+                  <option value="Tops">Tops</option>
+                  <option value="Bottoms">Bottoms</option>
+                  <option value="One-piece garments">One-piece garments</option>
+                  <option value="Outerwear">Outerwear</option>
+                  <option value="Footwear">Footwear</option>
+                  <option value="Accessories">Accessories</option>
+                  <option value="Custom">Custom Category</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="item-subcategory">Subcategory *</label>
+                <select id="item-subcategory" class="form-select" required>
+                  <!-- Populated dynamically -->
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row-dual">
+              <div class="form-group">
+                <label class="form-label" for="item-color">Primary Colour *</label>
+                <select id="item-color" class="form-select" required>
+                  <option value="Black">Black</option>
+                  <option value="White">White</option>
+                  <option value="Ivory">Ivory / Cream</option>
+                  <option value="Beige">Beige / Camel</option>
+                  <option value="Brown">Brown / Chocolate</option>
+                  <option value="Charcoal">Charcoal</option>
+                  <option value="Grey">Grey / Slate</option>
+                  <option value="Navy">Navy Blue</option>
+                  <option value="Blue">Blue / Denim</option>
+                  <option value="Burgundy">Burgundy / Wine</option>
+                  <option value="Olive">Olive / Sage</option>
+                  <option value="Forest Green">Forest Green</option>
+                  <option value="Terracotta">Terracotta / Rust</option>
+                  <option value="Mustard">Mustard / Ochre</option>
+                  <option value="Gold">Gold / Brass</option>
+                  <option value="Silver">Silver / Chrome</option>
+                  <option value="Multicolour">Multicolour / Pattern</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="item-secondary-color">Secondary Colour (Opt)</label>
+                <input type="text" id="item-secondary-color" class="form-input" placeholder="e.g. Cream, Gold accents">
+              </div>
+            </div>
+
+            <div class="form-row-dual">
+              <div class="form-group">
+                <label class="form-label" for="item-pattern">Pattern</label>
+                <select id="item-pattern" class="form-select">
+                  <option value="Solid">Solid</option>
+                  <option value="Striped">Striped</option>
+                  <option value="Plaid / Check">Plaid / Check</option>
+                  <option value="Floral">Floral</option>
+                  <option value="Abstract">Abstract</option>
+                  <option value="Textured weave">Textured Weave</option>
+                  <option value="Houndstooth">Houndstooth</option>
+                  <option value="Polka dot">Polka Dot</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="item-material">Material (Opt)</label>
+                <input type="text" id="item-material" class="form-input" placeholder="e.g. Wool, 100% Linen, Silk">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="item-aesthetic">Style / Aesthetic *</label>
+              <select id="item-aesthetic" class="form-select" required>
+                <option value="Minimalist">Minimalist</option>
+                <option value="Quiet luxury">Quiet luxury</option>
+                <option value="Old money">Old money</option>
+                <option value="Streetwear">Streetwear</option>
+                <option value="Smart casual">Smart casual</option>
+                <option value="Afrocentric">Afrocentric</option>
+                <option value="Traditional and cultural fashion">Traditional and cultural fashion</option>
+                <option value="Androgynous">Androgynous</option>
+                <option value="Vintage">Vintage</option>
+                <option value="Y2K">Y2K</option>
+                <option value="Bohemian">Bohemian</option>
+                <option value="Techwear">Techwear</option>
+                <option value="Corporate chic">Corporate chic</option>
+                <option value="Casual elegance">Casual elegance</option>
+                <option value="Avant-garde">Avant-garde</option>
+                <option value="Classic">Classic</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Suitable Occasions (Select Multiple)</label>
+              <div class="tags-picker-box" id="item-occasions-picker">
+                <label class="tag-check"><input type="checkbox" value="Work" checked><span>Work</span></label>
+                <label class="tag-check"><input type="checkbox" value="Casual outing" checked><span>Casual</span></label>
+                <label class="tag-check"><input type="checkbox" value="Date"><span>Date</span></label>
+                <label class="tag-check"><input type="checkbox" value="Brunch"><span>Brunch</span></label>
+                <label class="tag-check"><input type="checkbox" value="Party"><span>Party</span></label>
+                <label class="tag-check"><input type="checkbox" value="Formal event"><span>Formal</span></label>
+                <label class="tag-check"><input type="checkbox" value="Travel"><span>Travel</span></label>
+                <label class="tag-check"><input type="checkbox" value="Staying at home"><span>Lounge</span></label>
+                <label class="tag-check"><input type="checkbox" value="Gym or exercise"><span>Exercise</span></label>
+              </div>
+            </div>
+
+            <div class="form-row-dual">
+              <div class="form-group">
+                <label class="form-label" for="item-weather">Suitable Weather *</label>
+                <select id="item-weather" class="form-select" required>
+                  <option value="All-weather">All-Weather</option>
+                  <option value="Hot and sunny">Hot & Sunny</option>
+                  <option value="Warm">Warm</option>
+                  <option value="Cool">Cool</option>
+                  <option value="Cold">Cold</option>
+                  <option value="Rainy">Rainy</option>
+                  <option value="Windy">Windy</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="item-season">Season</label>
+                <select id="item-season" class="form-select">
+                  <option value="All-year">All-Year</option>
+                  <option value="Spring">Spring</option>
+                  <option value="Summer">Summer</option>
+                  <option value="Autumn">Autumn</option>
+                  <option value="Winter">Winter</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="item-notes">Styling Notes</label>
+              <textarea id="item-notes" class="form-textarea" rows="2" placeholder="e.g. Best layered with oversized knits. Pairs with silver hardware."></textarea>
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-item')">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-item">Save Garment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. ITEM DETAIL DRAWER / MODAL -->
+  <div id="modal-item-detail" class="modal-backdrop">
+    <div class="modal-dialog modal-md">
+      <div class="modal-header">
+        <h3 class="modal-title" id="detail-item-title">Garment Details</h3>
+        <button class="icon-btn modal-close-btn" onclick="closeModal('modal-item-detail')">×</button>
+      </div>
+      <div class="modal-body" id="detail-item-body">
+        <!-- Rendered by script -->
+      </div>
+      <div class="modal-footer" id="detail-item-footer">
+        <!-- Edit, Style, Delete buttons -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. SAVE OUTFIT MODAL (Style Lab) -->
+  <div id="modal-save-outfit" class="modal-backdrop">
+    <div class="modal-dialog modal-md">
+      <div class="modal-header">
+        <h3 class="modal-title">Save Outfit to Lookbook</h3>
+        <button class="icon-btn modal-close-btn" onclick="closeModal('modal-save-outfit')">×</button>
+      </div>
+      <form id="form-save-outfit" onsubmit="handleSaveOutfitSubmit(event)">
+        <input type="hidden" id="save-outfit-id">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="outfit-name">Outfit Name *</label>
+            <input type="text" id="outfit-name" class="form-input" placeholder="e.g. Autumn Gallery Promenade" required>
+          </div>
+
+          <div class="form-row-dual">
+            <div class="form-group">
+              <label class="form-label" for="outfit-aesthetic">Aesthetic *</label>
+              <select id="outfit-aesthetic" class="form-select" required>
+                <option value="Quiet luxury">Quiet luxury</option>
+                <option value="Minimalist">Minimalist</option>
+                <option value="Old money">Old money</option>
+                <option value="Streetwear">Streetwear</option>
+                <option value="Smart casual">Smart casual</option>
+                <option value="Afrocentric">Afrocentric</option>
+                <option value="Androgynous">Androgynous</option>
+                <option value="Vintage">Vintage</option>
+                <option value="Corporate chic">Corporate chic</option>
+                <option value="Casual elegance">Casual elegance</option>
+                <option value="Avant-garde">Avant-garde</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="outfit-mood">Mood</label>
+              <select id="outfit-mood" class="form-select">
+                <option value="Effortlessly chic">Effortlessly chic</option>
+                <option value="Confident and powerful">Confident & powerful</option>
+                <option value="Soft and relaxed">Soft & relaxed</option>
+                <option value="Bold and expressive">Bold & expressive</option>
+                <option value="Minimalist">Minimalist</option>
+                <option value="Elegant">Elegant</option>
+                <option value="Edgy">Edgy</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row-dual">
+            <div class="form-group">
+              <label class="form-label" for="outfit-occasion">Occasion</label>
+              <select id="outfit-occasion" class="form-select">
+                <option value="Work">Work</option>
+                <option value="Casual outing">Casual outing</option>
+                <option value="Date">Date</option>
+                <option value="Brunch">Brunch</option>
+                <option value="Party">Party</option>
+                <option value="Formal event">Formal event</option>
+                <option value="Travel">Travel</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="outfit-weather">Weather</label>
+              <select id="outfit-weather" class="form-select">
+                <option value="Warm">Warm</option>
+                <option value="Cool">Cool</option>
+                <option value="Cold">Cold</option>
+                <option value="Hot and sunny">Hot & sunny</option>
+                <option value="Rainy">Rainy</option>
+                <option value="All-weather">All-weather</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="outfit-collection">Add to Collection</label>
+            <select id="outfit-collection" class="form-select">
+              <!-- Populated by script -->
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="outfit-notes">Styling Description & Notes</label>
+            <textarea id="outfit-notes" class="form-textarea" rows="2" placeholder="Why this silhouette works, hardware accents, fragrance pairings..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-save-outfit')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save to Lookbook</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. ASSIGN TO PLANNER MODAL -->
+  <div id="modal-assign-planner" class="modal-backdrop">
+    <div class="modal-dialog modal-md">
+      <div class="modal-header">
+        <h3 class="modal-title" id="planner-modal-title">Schedule Outfit for Planner</h3>
+        <button class="icon-btn modal-close-btn" onclick="closeModal('modal-assign-planner')">×</button>
+      </div>
+      <form id="form-assign-planner" onsubmit="handleAssignPlannerSubmit(event)">
+        <input type="hidden" id="assign-target-date">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Select Saved Outfit</label>
+            <select id="assign-outfit-select" class="form-select" required>
+              <!-- Populated with saved outfits -->
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="assign-event-name">Event / Agenda</label>
+            <input type="text" id="assign-event-name" class="form-input" placeholder="e.g. Creative Review & Dinner">
+          </div>
+
+          <div class="form-row-dual">
+            <div class="form-group">
+              <label class="form-label" for="assign-occasion">Occasion</label>
+              <select id="assign-occasion" class="form-select">
+                <option value="Work">Work</option>
+                <option value="Business meeting">Business meeting</option>
+                <option value="Casual outing">Casual outing</option>
+                <option value="Date">Date</option>
+                <option value="Brunch">Brunch</option>
+                <option value="Party">Party</option>
+                <option value="Formal event">Formal event</option>
+                <option value="Travel">Travel</option>
+                <option value="Rest / Leisure">Rest / Leisure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="assign-location">Location / Venue</label>
+              <input type="text" id="assign-location" class="form-input" placeholder="e.g. Design Studio, Downtown">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="assign-notes">Planner Notes</label>
+            <textarea id="assign-notes" class="form-textarea" rows="2" placeholder="e.g. Carry umbrella; low-heeled boots for walking."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-assign-planner')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Confirm Schedule</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 5. CREATE COLLECTION MODAL (Lookbook) -->
+  <div id="modal-collection" class="modal-backdrop">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-header">
+        <h3 class="modal-title">New Lookbook Collection</h3>
+        <button class="icon-btn modal-close-btn" onclick="closeModal('modal-collection')">×</button>
+      </div>
+      <form id="form-collection" onsubmit="handleCreateCollectionSubmit(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="new-collection-name">Collection Title *</label>
+            <input type="text" id="new-collection-name" class="form-input" placeholder="e.g. Gallery Openings, Summer Resort" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-collection')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create Collection</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 6. PREFERENCES & BACKUP DRAWER -->
+  <div id="drawer-preferences" class="modal-backdrop">
+    <div class="modal-dialog modal-md">
+      <div class="modal-header">
+        <h3 class="modal-title">Preferences & Wardrobe Backup</h3>
+        <button class="icon-btn modal-close-btn" onclick="closeModal('drawer-preferences')">×</button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Profile Customization -->
+        <div class="pref-section">
+          <h4 class="pref-heading">Styling Profile</h4>
+          <div class="form-group">
+            <label class="form-label" for="pref-username">Your Name / Alias</label>
+            <input type="text" id="pref-username" class="form-input" value="Alex">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="pref-default-dresscode">Default Workplace Dress Code</label>
+            <select id="pref-default-dresscode" class="form-select">
+              <option value="Smart casual">Smart Casual</option>
+              <option value="Creative professional">Creative Professional</option>
+              <option value="Business casual">Business Casual</option>
+              <option value="Business formal">Business Formal</option>
+              <option value="Casual">Casual</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Storage & Data Backup -->
+        <div class="pref-section">
+          <h4 class="pref-heading">Data Persistence & Storage</h4>
+          <p class="pref-desc">All garments, photos, outfits, and schedules are stored securely in your browser's localStorage.</p>
+          
+          <div class="storage-usage-box">
+            <div class="storage-meter-label">
+              <span>Browser Storage Used:</span>
+              <strong id="storage-used-display">-- KB</strong>
+            </div>
+            <div class="storage-bar-bg">
+              <div id="storage-bar-fill" class="storage-bar-fill" style="width: 15%;"></div>
+            </div>
+          </div>
+
+          <div class="backup-actions-grid">
+            <button class="btn btn-secondary btn-block" onclick="exportDataBackup()">
+              <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+              Export JSON Backup
+            </button>
+            <button class="btn btn-outline btn-block" onclick="document.getElementById('import-file-input').click()">
+              <svg class="svg-icon sm" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+              Import Backup
+            </button>
+            <input type="file" id="import-file-input" accept=".json" class="file-input-hidden" onchange="handleImportBackup(event)">
+          </div>
+
+          <div class="reset-area">
+            <button class="btn btn-link text-danger" onclick="confirmResetDemoData()">
+              Reset to Curated Studio Demo Data
+            </button>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="saveUserPreferences()">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. CONFIRMATION DIALOG -->
+  <div id="modal-confirm" class="modal-backdrop">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-header">
+        <h3 class="modal-title" id="confirm-title">Confirm Action</h3>
+        <button class="icon-btn modal-close-btn" onclick="closeModal('modal-confirm')">×</button>
+      </div>
+      <div class="modal-body">
+        <p id="confirm-message" class="confirm-text">Are you sure you want to proceed?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="confirm-btn-cancel">Cancel</button>
+        <button class="btn btn-danger" id="confirm-btn-ok">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. GLOBAL TOAST CONTAINER -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script src="script.js"></script>
+</body>
+</html>
+
